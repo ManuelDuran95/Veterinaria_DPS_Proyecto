@@ -1,0 +1,97 @@
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Lista de Mascotas</h4>
+                <h6 class="card-subtitle"></h6>
+                <div class="table-responsive">
+                                              <h4 class="modal-title" id="myModalLabel">Agregar Nueva Mascota</h4> </div>
+                                            <div class="modal-body"> 
+                                                <form class="form-horizontal form-material">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Nombre de Mascota" name="Nombre_mascota" [(ngModel)]="Nombre_mascota"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Especie" name="Especie" [(ngModel)]="Especie"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Raza" name="Raza" [(ngModel)]="Raza"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Color" name="Color" [(ngModel)]="Color"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="date" class="form-control" placeholder="Fecha de Nacimiento" name="Fecha_nacimiento" [(ngModel)]="Fecha_nacimiento"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Propietario" name="Nombre_propietario" [(ngModel)]="Nombre_propietario"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Telefono" name="Telefono" [(ngModel)]="Telefono"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Direccion" name="Direccion" [(ngModel)]="Direccion"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="text" class="form-control" placeholder="Correo Electronico" name="Correo" [(ngModel)]="Correo"> </div>
+                                                        <div class="col-md-12 m-b-20">
+                                                            <input type="password" class="form-control" placeholder="Contraseña" name="Password" [(ngModel)]="Password"> </div>
+                            
+                                                    </div>
+                                                        
+                                                </form>
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal" (click)="onSubmit()">Save</button>
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div> 
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list footable-loaded footable" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th class="footable-sortable">Nombre de mascota<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Especie<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Raza<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Color<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Fecha de Nacimiento<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Propietario<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Numero<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Direccion<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mascota of mascotaList">
+                                <td>
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                          <a class="nav-link" routerLink="/profile">
+                                    <!-- <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user" width="40" class="img-circle"></a> -->
+                                    {{mascota.Nombre_mascota}}</a></li></ul>
+                                </td>
+                                <td>{{mascota.Especie}}</td>
+                                <td>{{mascota.Raza}}</td>
+                                <td>{{mascota.Color}}</td>
+                                <td>{{mascota.Fecha_nacimiento}}</td>
+                                <td>{{mascota.Nombre_propietario}}</td>
+                                <td>{{mascota.Telefono}}</td>
+                                <td>{{mascota.Direccion}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete" (click)="onDelete(mascota.$key)"><i class="ti-close" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar Nueva Mascota</button>
+                                </td>
+                                
+                                <!-- <td colspan="7">
+                                    <div class="text-right">
+                                        <ul class="pagination"> <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page"><a data-page="1" href="#">2</a></li><li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li></ul>
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+          

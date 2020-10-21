@@ -10,6 +10,14 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+//Firebase
+import { AngularFireModule } from "@angular/fire";
+//import { AngularFireAuthModule } from "@angular/fire/auth";
+//import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 import { AppComponent } from './app.component';
 
@@ -40,6 +48,10 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { MascotasComponent } from './components/views/mascotas/mascotas.component';
+
+//servicios
+import{MascotaService} from './services/mascota.service';
 
 @NgModule({
   imports: [
@@ -54,7 +66,9 @@ import { ChartsModule } from 'ng2-charts';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   declarations: [
     AppComponent,
@@ -62,12 +76,17 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MascotasComponent
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+    
+  },
+  MascotaService
+
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -97,25 +97,21 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Buttons',
-    url: '/buttons',
-    icon: 'icon-cursor',
+    name: 'Mascotas',
+    url: '/mascotas',
+    icon: 'icon-sun',
     children: [
       {
-        name: 'Buttons',
-        url: '/buttons/buttons',
-        icon: 'icon-cursor'
+        name: 'Agregar',
+        url: '/mascotas',
+        icon: 'icon-shield'
       },
       {
-        name: 'Dropdowns',
+        name: 'Buscar',
         url: '/buttons/dropdowns',
-        icon: 'icon-cursor'
+        icon: 'icon-magnifying-glass'
       },
-      {
-        name: 'Brand Buttons',
-        url: '/buttons/brand-buttons',
-        icon: 'icon-cursor'
-      }
+      
     ]
   },
   {
@@ -223,29 +219,6 @@ export const navItems: INavData[] = [
       }
     ]
   },
-  {
-    name: 'Disabled',
-    url: '/dashboard',
-    icon: 'icon-ban',
-    badge: {
-      variant: 'secondary',
-      text: 'NEW'
-    },
-    attributes: { disabled: true },
-  },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
-  }
+  
+  
 ];
