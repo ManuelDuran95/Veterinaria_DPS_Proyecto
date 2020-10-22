@@ -99,7 +99,7 @@ export const navItems: INavData[] = [
   {
     name: 'Mascotas',
     url: '/mascotas',
-    icon: 'icon-sun',
+    icon: 'icon-shield',
     children: [
       {
         name: 'Agregar',
@@ -108,25 +108,25 @@ export const navItems: INavData[] = [
       },
       {
         name: 'Buscar',
-        url: '/buttons/dropdowns',
+        url: '/BuscarMascotas',
         icon: 'icon-magnifying-glass'
       },
       
     ]
   },
   {
-    name: 'Charts',
-    url: '/charts',
+    name: 'Citas',
+    url: '/citas/citas',
     icon: 'icon-pie-chart'
   },
   {
-    name: 'Icons',
-    url: '/icons',
+    name: 'Sin servicio',
+    url: '/citas',
     icon: 'icon-star',
     children: [
       {
         name: 'CoreUI Icons',
-        url: '/icons/coreui-icons',
+        url: '/citas',
         icon: 'icon-star',
         badge: {
           variant: 'success',
@@ -135,7 +135,7 @@ export const navItems: INavData[] = [
       },
       {
         name: 'Flags',
-        url: '/icons/flags',
+        url: '/citas/citas',
         icon: 'icon-star'
       },
       {

@@ -3,38 +3,35 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Lista de Mascotas</h4>
+                <h4 class="card-title">Lista de Citas</h4>
                 <h6 class="card-subtitle"></h6>
                 <div class="table-responsive">
                     <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                      <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">Agendar cita</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title" id="myModalLabel">Agregar Nueva Mascota</h4> </div>
+                                                 </div>
                                             <div class="modal-body"> 
                                                 <form class="form-horizontal form-material">
                                                     <div class="form-group">
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Nombre de Mascota" name="Nombre_mascota" [(ngModel)]="Nombre_mascota"> </div>
+                                                            <input type="number" class="form-control" placeholder="Numero" name="Num" [(ngModel)]="Num"> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Especie" name="Especie" [(ngModel)]="Especie"> </div>
+                                                            <input type="date" class="form-control" placeholder="Fecha" name="Fecha" [(ngModel)]="Fecha"> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Raza" name="Raza" [(ngModel)]="Raza"> </div>
+                                                            <input type="time" class="form-control" placeholder="Hora" name="Hora" [(ngModel)]="Hora"> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Color" name="Color" [(ngModel)]="Color"> </div>
+                                                            <input type="text" class="form-control" placeholder="Motivo" name="Motivo" [(ngModel)]="Motivo" required> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="date" class="form-control" placeholder="Fecha de Nacimiento" name="Fecha_nacimiento" [(ngModel)]="Fecha_nacimiento"> </div>
+                                                            <input type="text" class="form-control" placeholder="Estado" name="Estado" [(ngModel)]="Estado"> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Propietario" name="Nombre_propietario" [(ngModel)]="Nombre_propietario"> </div>
+                                                            <input type="text" class="form-control" placeholder="Mascota" name="Mascota" [(ngModel)]="Mascota"> </div>
                                                         <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Telefono" name="Telefono" [(ngModel)]="Telefono"> </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Direccion" name="Direccion" [(ngModel)]="Direccion"> </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="text" class="form-control" placeholder="Correo Electronico" name="Correo" [(ngModel)]="Correo"> </div>
-                                                        <div class="col-md-12 m-b-20">
-                                                            <input type="password" class="form-control" placeholder="Contraseña" name="Password" [(ngModel)]="Password"> </div>
+                                                            <input type="text" class="form-control" placeholder="Propietario" name="Propietario" [(ngModel)]="Propietario"> </div>
+                                                        
+                                                            
                             
                                                     </div>
                                                         
@@ -52,33 +49,32 @@
                                 <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list footable-loaded footable" data-page-size="10">
                         <thead>
                             <tr>
-                                <th class="footable-sortable">Nombre de mascota<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Especie<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Raza<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Color<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Fecha de Nacimiento<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Numero cita<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Fecha<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Hora<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Motivo<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Estado<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">Mascota<span class="footable-sort-indicator"></span></th>
                                 <th class="footable-sortable">Propietario<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Numero<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Direccion<span class="footable-sort-indicator"></span></th>
-                                <th class="footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let mascota of mascotaList">
+                            <tr *ngFor="let cita of citaList">
                                 <td>
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
                                           <a class="nav-link" routerLink="/profile">
                                     <!-- <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user" width="40" class="img-circle"></a> -->
-                                    {{mascota.Nombre_mascota}}</a></li></ul>
+                                    {{cita.Num}}</a></li></ul>
                                 </td>
-                                <td>{{mascota.Especie}}</td>
-                                <td>{{mascota.Raza}}</td>
-                                <td>{{mascota.Color}}</td>
-                                <td>{{mascota.Fecha_nacimiento}}</td>
-                                <td>{{mascota.Nombre_propietario}}</td>
-                                <td>{{mascota.Telefono}}</td>
-                                <td>{{mascota.Direccion}}</td>
+                                <td>{{cita.Fecha}}</td>
+                                <td>{{cita.Hora}}</td>
+                                <td>{{cita.Motivo}}</td>
+                                <td>{{cita.Estado}}</td>
+                                <td>{{cita.Mascota}}</td>
+                                <td>{{cita.Propietario}}</td>
+                               
                                 <td>
                                     <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete" (click)="onDelete(mascota.$key)"><i class="ti-close" aria-hidden="true"></i></button>
                                 </td>
@@ -87,7 +83,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="2">
-                                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar Nueva Mascota</button>
+                                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Agregar Nueva Cita</button>
                                 </td>
                                 
                                 <!-- <td colspan="7">

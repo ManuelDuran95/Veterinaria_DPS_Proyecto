@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -52,6 +53,9 @@ import { MascotasComponent } from './components/views/mascotas/mascotas.componen
 
 //servicios
 import{MascotaService} from './services/mascota.service';
+import{CitaService} from './services/cita.service';
+//import { MascotasListComponent } from './views/mascotas-list/mascotas-list.component';
+//import { CitasComponent } from './views/citas/citas.component';
 
 @NgModule({
   imports: [
@@ -67,6 +71,8 @@ import{MascotaService} from './services/mascota.service';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
@@ -77,14 +83,18 @@ import{MascotaService} from './services/mascota.service';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    MascotasComponent
+    MascotasComponent,
+    //MascotasListComponent,
+    //CitasComponent
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
     
   },
-  MascotaService
+  MascotaService,
+  CitaService
+  
 
 ],
   bootstrap: [ AppComponent ]

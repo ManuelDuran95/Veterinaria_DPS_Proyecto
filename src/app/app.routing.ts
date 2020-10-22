@@ -85,6 +85,14 @@ export const routes: Routes = [
       {
         path: 'mascotas',
         loadChildren: () => import('./views/mascotas/mascotas.module').then(m => m.MascotasModule)
+      },
+      {
+        path: 'citas',
+        loadChildren: () => import('./views/citas/citas.module').then(m => m.CitasModule)
+      },
+      {
+        path: 'BuscarMascotas',
+        loadChildren: () => import('./views/mascotas-list/mascotas-list.module').then(m => m.MascotasListModule)
       }
     ]
   },
