@@ -8,13 +8,27 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+//AUth
+//import { LoginComponent } from './views/login/login.component';
+import { SignUpComponent } from './views/sign-up/sign-up.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './views/verify-email/verify-email.component';
+import { AuthGuard } from "./views/auth.guard";
+import{ConsultasComponent} from './views/consultas/consultas.component';
+import { ConsultasModule } from './views/consultas/consultas.module';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  },
+ // { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: 'sign-in', component: LoginComponent },
+  { path: 'register-user', component: SignUpComponent },
+ // { path: 'dashboard', component: DashboardComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  //{ path: 'products', component: ProductsComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  
+  
+  
   {
     path: '404',
     component: P404Component,
@@ -44,7 +58,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: '', 
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -90,10 +104,14 @@ export const routes: Routes = [
         path: 'citas',
         loadChildren: () => import('./views/citas/citas.module').then(m => m.CitasModule)
       },
-      {
-        path: 'BuscarMascotas',
+     {
+       path: 'BuscarMascotas',
         loadChildren: () => import('./views/mascotas-list/mascotas-list.module').then(m => m.MascotasListModule)
-      }
+      },
+    {
+       path: 'consultas',
+      loadChildren: () => import('./views/consultas/consultas.module').then(m => m.ConsultasModule)
+    }
     ]
   },
   { path: '**', component: P404Component }

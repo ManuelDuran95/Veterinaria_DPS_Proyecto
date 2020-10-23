@@ -33,32 +33,10 @@ export const navItems: INavData[] = [
     url: '/base',
     icon: 'icon-puzzle',
     children: [
-      {
-        name: 'Cards',
-        url: '/base/cards',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Carousels',
-        url: '/base/carousels',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Collapses',
-        url: '/base/collapses',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Forms',
-        url: '/base/forms',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Navbars',
-        url: '/base/navbars',
-        icon: 'icon-puzzle'
-
-      },
+      
+      
+      
+      
       {
         name: 'Pagination',
         url: '/base/paginations',
@@ -82,16 +60,6 @@ export const navItems: INavData[] = [
       {
         name: 'Tables',
         url: '/base/tables',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tabs',
-        url: '/base/tabs',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tooltips',
-        url: '/base/tooltips',
         icon: 'icon-puzzle'
       }
     ]
@@ -120,21 +88,18 @@ export const navItems: INavData[] = [
     icon: 'icon-pie-chart'
   },
   {
-    name: 'Sin servicio',
-    url: '/citas',
+    name: 'Consultas',
+    url: '/consultas',
     icon: 'icon-star',
     children: [
       {
-        name: 'CoreUI Icons',
-        url: '/citas',
-        icon: 'icon-star',
-        badge: {
-          variant: 'success',
-          text: 'NEW'
-        }
+        name: 'Agregar Consultas',
+        url: '/consultas',
+        icon: 'icon-star'
+        
       },
       {
-        name: 'Flags',
+        name: 'Buscar',
         url: '/citas/citas',
         icon: 'icon-star'
       },

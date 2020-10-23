@@ -13,8 +13,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 //Firebase
 import { AngularFireModule } from "@angular/fire";
-//import { AngularFireAuthModule } from "@angular/fire/auth";
-//import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -54,9 +54,14 @@ import { MascotasComponent } from './components/views/mascotas/mascotas.componen
 //servicios
 import{MascotaService} from './services/mascota.service';
 import{CitaService} from './services/cita.service';
+import { SignUpComponent } from './views/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './views/verify-email/verify-email.component';
+//import { ConsultasComponent } from './views/consultas/consultas.component';
 //import { MascotasListComponent } from './views/mascotas-list/mascotas-list.component';
 //import { CitasComponent } from './views/citas/citas.component';
-
+import { AuthGuard } from "./views/auth.guard";
+//import{DashboardComponent} from './views/dashboard/dashboard.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -74,7 +79,10 @@ import{CitaService} from './services/cita.service';
     FormsModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
+  
   ],
   declarations: [
     AppComponent,
@@ -84,8 +92,13 @@ import{CitaService} from './services/cita.service';
     LoginComponent,
     RegisterComponent,
     MascotasComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
+    //ConsultasComponent,
     //MascotasListComponent,
     //CitasComponent
+    //DashboardComponent
   ],
   providers: [{
     provide: LocationStrategy,
@@ -93,7 +106,9 @@ import{CitaService} from './services/cita.service';
     
   },
   MascotaService,
-  CitaService
+  CitaService,
+  AuthGuard
+  
   
 
 ],
