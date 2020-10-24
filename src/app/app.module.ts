@@ -62,9 +62,12 @@ import { VerifyEmailComponent } from './views/verify-email/verify-email.componen
 //import { CitasComponent } from './views/citas/citas.component';
 import { AuthGuard } from "./views/auth.guard";
 //import{DashboardComponent} from './views/dashboard/dashboard.component';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
 @NgModule({
   imports: [
     BrowserModule,
+    //JwtModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
@@ -104,11 +107,13 @@ import { AuthGuard } from "./views/auth.guard";
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
     
+    
   },
   MascotaService,
   CitaService,
-  AuthGuard
-  
+  AuthGuard,
+  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
   
 
 ],

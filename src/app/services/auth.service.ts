@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class AuthService {
     public afs: AngularFirestore,   //  Inyectar Servicio Firestore
     public afAuth: AngularFireAuth, // Inyectar el servicio de autenticación de Firebase
     public router: Router,  
-    public ngZone: NgZone // Servicio NgZone para eliminar la advertencia de alcance externo
+    public ngZone: NgZone, // Servicio NgZone para eliminar la advertencia de alcance externo
+    public jwtHelper: JwtHelperService
   
   ) { 
     
@@ -36,7 +38,7 @@ export class AuthService {
 SignIn(email, password) {
   return this.afAuth.signInWithEmailAndPassword(email, password).then((result) => {
       this.ngZone.run(() => {
-        this.router.navigate(['inicio']);
+        this.router.navigate(['']);
       });
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -77,9 +79,16 @@ SignIn(email, password) {
 
   // Devuelve verdadero cuando el usuario está conectado y 
   // el correo electrónico está verificado
-  get isLoggedIn(): boolean {
+  isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : true;
+    if(user !== null && user.emailVerified !== false) {
+      return true;
+
+    }
+    else{
+      return false;
+    }
+    
   }
 
 // Iniciar sesión usando Facebook
@@ -102,7 +111,7 @@ SignIn(email, password) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['inicio']);
+          this.router.navigate(['/dashboard']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -133,8 +142,14 @@ SignIn(email, password) {
     return this.afAuth.signOut().then(() => {
       localStorage.setItem('user', null);
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     })
+  }
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
 

@@ -19,15 +19,20 @@ import{ConsultasComponent} from './views/consultas/consultas.component';
 import { ConsultasModule } from './views/consultas/consultas.module';
 
 export const routes: Routes = [
- // { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
-  { path: 'sign-in', component: LoginComponent },
+  
+ //{ path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'register-user', component: SignUpComponent },
  // { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   //{ path: 'products', component: ProductsComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   
-  
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
   
   {
     path: '404',
@@ -59,7 +64,7 @@ export const routes: Routes = [
   },
   {
     path: '', 
-    component: DefaultLayoutComponent,
+    component: DefaultLayoutComponent, canActivate:[AuthGuard],
     data: {
       title: 'Home'
     },

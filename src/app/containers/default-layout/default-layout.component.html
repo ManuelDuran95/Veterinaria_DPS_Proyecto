@@ -1,8 +1,8 @@
 <app-header
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [navbarBrandFull]="{src: 'assets/img/brand/logoN1.png', width: 89, height: 25, alt: 'Veterinaria'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/logoN2.png', width: 30, height: 30, alt: 'Veterinaria'}"
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
   <ul class="nav navbar-nav d-md-down-none">
@@ -13,7 +13,9 @@
       <a class="nav-link" href="#">Users</a>
     </li>
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">Settings</a>
+      <a class="redirect" routerLink="/login">
+        <i class="fas fa-prescription"></i>Ingresar
+      </a>
     </li>
   </ul>
   <ul class="nav navbar-nav ml-auto" *ngIf="authService.userData as user">
@@ -338,6 +340,9 @@
       </tab>
     </tabset>
   </app-aside>
+</div>
+<div>
+  Hola
 </div>
 <app-footer>
   <span><a href="https://coreui.io">UDB</a> &copy; 2020 Proyecto DPS.</span>
